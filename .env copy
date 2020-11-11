@@ -1,0 +1,1 @@
+DB_CONNECT = mongodb+srv://Kenneth:<password>@authapicluster.auh4d.mongodb.net/<dbname>?retryWrites=true&w=majority

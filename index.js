@@ -1,45 +1,21 @@
-const {ApolloServer, gql, ApolloError} = require('apollo-server')
+const {ApolloServer, gql} = require('apollo-server'); 
+const mongoose = require('mongoose')
+const dotenv = require('dotenv'); 
 
-const books = [
-    {
-      title: 'The Awakening',
-      author: 'Kate Chopin',
-    },
-    {
-      title: 'City of Glass',
-      author: 'Paul Auster',
-    },
-  ];
+dotenv.config()
 
-const typeDefs = gql `
-    type Book {
-        title: String, 
-        author: String
-    }
-
-    type Query {
-        books: [Book], 
-        sayHi: String
-    }
-
-    
-
-`
-
-const resolvers = {
-    Query: {
-
-        sayHi: ()=>{
-            console.log("hello")
-        },
-
-        books: ()=>{
-            books
-        }
-    }
-}
+// imports 
+const { typeDefs } = require('./graphql/typeDefs')
+const { resolvers } = require('./resolvers/index')
 
 const server = new ApolloServer({typeDefs, resolvers});
 
-server.listen()
+mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+        .then(()=>{
+            console.log("Database connection established successfuly")
+            return server.listen()
+        })
         .then(({url})=> console.log(`server connection established successfully on url ${url}`))
+
+//models
+require('./models/registerModel.js')
