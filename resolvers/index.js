@@ -4,6 +4,10 @@ const registerResolvers = require('./register.js')
 const resolvers = {
     Query: {
         ...registerResolvers.Query
+    },
+
+    Mutation: {
+        ...registerResolvers.Mutation
     }
 }
 

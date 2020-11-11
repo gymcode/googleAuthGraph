@@ -4,4 +4,8 @@ module.exports = {
             return "this is me"
         }
     },
+
+    Mutation: {
+        
+    }
 }
