@@ -1,3 +1,5 @@
+const User = require('../models/registerModel')
+
 module.exports = {
     Query: {
         sayHi: ()=>{
@@ -6,6 +8,8 @@ module.exports = {
     },
 
     Mutation: {
-        
+        register(parent, { registerInput: {firstname, lastname, username, password, confirmPassword}}, context, info) {
+
+        }
     }
 }
