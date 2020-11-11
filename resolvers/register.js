@@ -8,8 +8,10 @@ module.exports = {
     },
 
     Mutation: {
-        register(parent, { registerInput: {firstname, lastname, username, password, confirmPassword}}, context, info) {
-
+        register: async (parent, { registerInput: {firstname, lastname, username, password, confirmPassword} }, context, info) => {
+           return {
+               error: "console.log(firstname, lastname, username, password, confirmPassword)"
+           }
         }
     }
 }
