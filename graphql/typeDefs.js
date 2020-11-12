@@ -8,6 +8,7 @@ const typeDefs = gql `
         lastname: String!, 
         email: String!, 
         token: String!, 
+        date: String!
     }
 
     input RegisterInput {

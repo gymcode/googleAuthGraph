@@ -41,7 +41,7 @@ module.exports = {
             //saving user in the database
             try {
                 const savedUser = await user.save();
-                console.log(savedUser)
+                console.log({...savedUser._doc})
                 console.log(parent)
 
                 // jwt token 
@@ -54,10 +54,8 @@ module.exports = {
                 console.log(token)
 
                 return {
-                    id: savedUser._id, 
-                    firstname, 
-                    lastname,
-                    email,
+                    ...savedUser._doc,
+                    id: savedUser._id,
                     token
                 }
             } catch (error) {
