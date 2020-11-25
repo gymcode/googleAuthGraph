@@ -18,12 +18,18 @@ const typeDefs = gql `
         password: String!, 
     }
 
+    input LoginInput {
+        email: String!, 
+        password: String!,
+    }
+
     type Query {
         sayHi: String
     }, 
 
     type Mutation {
-        register(registerInput: RegisterInput): User
+        register(registerInput: RegisterInput): User!, 
+        login(loginInput: LoginInput): User!,   
     }
 
 `
