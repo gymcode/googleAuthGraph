@@ -9,6 +9,15 @@ module.exports = {
             } catch (error) {
                 throw new Error("the database is giving issues")
             }
+        }, 
+
+        getUserbyId: async (parent, {id})=>{
+            try {
+                const userbyId = await User.findById(id)
+                return userbyId
+            } catch (error) {
+                throw new Error("the database dier fooling sooor")
+            }
         }
     }
 }
