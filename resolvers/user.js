@@ -1,4 +1,5 @@
 const User = require('../models/registerModel')
+const CheckAuth = require('../utils/checkAuth.js')
 
 module.exports = {
     Query: {
@@ -11,7 +12,7 @@ module.exports = {
             }
         }, 
 
-        getUserbyId: async (parent, {id})=>{
+        getUserbyId: async (parent, {id}, context)=>{
             try {
                 const userbyId = await User.findById(id)
                 return userbyId
