@@ -24,7 +24,8 @@ const typeDefs = gql `
     }
 
     type Query {
-        sayHi: String
+        sayHi: String,
+        getUsers: [User],
     }, 
 
     type Mutation {
