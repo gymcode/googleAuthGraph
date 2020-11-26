@@ -29,7 +29,7 @@ const typeDefs = gql `
 
     type Mutation {
         register(registerInput: RegisterInput): User!, 
-        login(loginInput: LoginInput): User!,   
+        login(loginInput: LoginInput): User!,      
     }
 
 `

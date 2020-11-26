@@ -8,9 +8,11 @@ const {SECRET_KEY} = require('../config')
 module.exports = {
     Mutation: {
         login: async(parent, {loginInput: {email, password}})=>{
+            console.log("dsdasdkadasda")
             // making sure all fields are not empty
             // checking if the email already exists
             const emailCheck = await User.findOne({email}); 
+            console.log(emailCheck)
             if (!emailCheck) throw new UserInputError('email doesnot exist in the db', {
                 error: "user doesnot exist"
             })
@@ -26,6 +28,15 @@ module.exports = {
                 id: emailCheck._id, 
                 email: emailCheck.email
             }, SECRET_KEY, {expiresIn: "1h"})
+
+            return {
+                id: emailCheck._id,
+                firstname: emailCheck.firstname, 
+                lastname: emailCheck.lastname,
+                email: emailCheck.email,
+                date: emailCheck.date,
+                token
+            }
 
 
         }
