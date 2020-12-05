@@ -23,6 +23,16 @@ const typeDefs = gql `
         password: String!,
     }
 
+    input WeddingDetails {
+        brideName: String!, 
+        groomName: String!, 
+        venue: String!, 
+        date: String!, 
+        createdAt: String!, 
+        updatedAt: String!, 
+        user: ID!,
+    }
+
     type Query {
         sayHi: String,
         getUsers: [User],
@@ -31,7 +41,8 @@ const typeDefs = gql `
 
     type Mutation {
         register(registerInput: RegisterInput): User!, 
-        login(loginInput: LoginInput): User!,      
+        login(loginInput: LoginInput): User!,    
+        addWedding(weddingdetails: WeddingDetails): User!,  
     }
 
 `

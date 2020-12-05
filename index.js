@@ -24,4 +24,5 @@ mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true, useUnifiedTopol
         .then(({url})=> console.log(`server connection established successfully on url ${url}`))
 
 //models
-require('./models/registerModel.js')
+require('./models/registerModel.js');
+require('./models/wedding');

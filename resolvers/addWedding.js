@@ -1,0 +1,1 @@
+const Wedding = require('../models/wedding')
