@@ -8,6 +8,19 @@ module.exports = {
             context) =>
             {
                 const User = checkAuth(context)
+                console.log(User);
+
+                const newWedding = new Wedding({
+                    brideName, 
+                    groomName, 
+                    venue, 
+                    date,
+                    user: User._id
+                })
+
+                const savedWedding = await newWedding.save();
+
+                return savedWedding;
             }   
     }
 }

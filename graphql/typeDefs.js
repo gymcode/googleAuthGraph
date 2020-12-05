@@ -10,6 +10,17 @@ const typeDefs = gql `
         token: String!, 
         date: String!
     }
+    
+    type Wedding{
+       id: ID!, 
+       brideName: String! 
+       groomName: String!, 
+       venue: String!, 
+       date: String!, 
+       createdAt: String!, 
+       updatedAt: String!, 
+       user: ID!,
+    }
 
     input RegisterInput {
         firstname: String!, 
@@ -27,9 +38,7 @@ const typeDefs = gql `
         brideName: String!, 
         groomName: String!, 
         venue: String!, 
-        date: String!, 
-        createdAt: String!, 
-        updatedAt: String!, 
+        date: String!,       
         user: ID!,
     }
 
@@ -42,7 +51,7 @@ const typeDefs = gql `
     type Mutation {
         register(registerInput: RegisterInput): User!, 
         login(loginInput: LoginInput): User!,    
-        addWedding(weddingdetails: WeddingDetails): User!,  
+        addWedding(weddingdetails: WeddingDetails): Wedding!,  
     }
 
 `

@@ -26,9 +26,10 @@ const WeddingSchema = new Schema({
         type: Date, 
         default: Date.now(),
     }, 
-    user: Schema.Types.ObjectId
-     
-
-
-
+    user: {
+        type: Schema.Types.ObjectId, 
+        ref: "users"
+    }
 })
+
+module.exports = mongoose.model("wedding", WeddingSchema);
