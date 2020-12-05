@@ -15,7 +15,7 @@ module.exports = {
                     groomName, 
                     venue, 
                     date,
-                    user: User._id
+                    user: User.id
                 })
 
                 const savedWedding = await newWedding.save();

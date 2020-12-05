@@ -39,7 +39,6 @@ const typeDefs = gql `
         groomName: String!, 
         venue: String!, 
         date: String!,       
-        user: ID!,
     }
 
     type Query {
