@@ -2,6 +2,7 @@
 const registerResolvers = require('./register.js')
 const LoginResolvers = require('./login.js')
 const UserResolvers = require('./user.js')
+const WeddingMutation = require('./wedding.js')
 
 const resolvers = {
     Query: {
@@ -11,7 +12,8 @@ const resolvers = {
 
     Mutation: {
         ...registerResolvers.Mutation, 
-        ...LoginResolvers.Mutation
+        ...LoginResolvers.Mutation, 
+        ...WeddingMutation.Mutation
     }
 }
 
