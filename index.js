@@ -5,12 +5,12 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 // imports 
-const { typeDefs } = require('./src/graphql/typeDefs.js')
 const { resolvers } = require('./src/graphql/resolvers/index')
+const typeDefs = require('./src/graphql/typeDefs')
 
 const server = new ApolloServer(
     {
-        typeDefs, 
+        typeDefs,         
         resolvers, 
         context : ({req})=>({req})
     }

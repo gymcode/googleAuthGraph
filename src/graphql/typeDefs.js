@@ -1,59 +1,18 @@
 const {gql} = require('apollo-server')
+const Users = require('./typeDefs/userAuthType')
+const Wedding = require('./typeDefs/weedingType')
 
-const typeDefs = gql ` 
-    type User {
-        id: ID!, 
-        firstname: String!, 
-        lastname: String!, 
-        email: String!, 
-        token: String!, 
-        date: String!
-    }
-    
-    type Wedding{
-       id: ID!, 
-       brideName: String! 
-       groomName: String!, 
-       venue: String!, 
-       date: String!, 
-       createdAt: String!, 
-       updatedAt: String!, 
-       user: ID!,
+const typeDefs = gql `
+    type Query{
+        root: String
     }
 
-    input RegisterInput {
-        firstname: String!, 
-        lastname: String!, 
-        username: String!, 
-        password: String!, 
+    type Mutation{
+        root: String        
     }
 
-    input LoginInput {
-        email: String!, 
-        password: String!,
-    }
-
-    input WeddingDetails {
-        brideName: String!, 
-        groomName: String!, 
-        venue: String!, 
-        date: String!,       
-    }
-
-    type Query {
-        sayHi: String,
-        getUsers: [User],
-        getUserbyId (id: ID!): User!, 
-    }, 
-
-    type Mutation {
-        register(registerInput: RegisterInput): User!, 
-        login(loginInput: LoginInput): User!,    
-        addWedding(weddingdetails: WeddingDetails): Wedding!,  
-    }
-
+    ${Users}
+    ${Wedding}
 `
 
-module.exports = {
-    typeDefs
-}
+module.exports = typeDefs
