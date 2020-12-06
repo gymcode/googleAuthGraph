@@ -1,5 +1,5 @@
-const Wedding = require('../../models/wedding'); 
-const checkAuth = require('../../utils/checkAuth')
+const Wedding = require('../../../models/wedding'); 
+const checkAuth = require('../../../utils/checkAuth')
 
 module.exports = {
     Mutation : {

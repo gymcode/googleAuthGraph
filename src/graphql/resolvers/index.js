@@ -1,6 +1,6 @@
 // combining all the resolvers
-const UserResolvers = require('./user.js')
-const WeddingMutation = require('./wedding.js')
+const UserResolvers = require('./User')
+const WeddingMutation = require('./Wedding')
 
 const resolvers = {
     Query: {
