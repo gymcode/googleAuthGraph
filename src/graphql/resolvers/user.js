@@ -27,7 +27,7 @@ module.exports = {
 
     Mutation: {
         // TODO registration
-        userRegister: async (parent,{ registerInput: {firstname, lastname, username, password} }) => {
+        userRegister: async (parent,{ registerInput: {firstname, lastname, username, password, confirmPassword} }) => {
             // validation for the inputs
             // making the username an email
             const DEFAULT_EMAIL = "@gmail.com"; 

@@ -15,6 +15,7 @@ const users = gql `
         lastname: String!, 
         username: String!, 
         password: String!, 
+        confirmPassword: String!
     }
 
     input LoginInput {
