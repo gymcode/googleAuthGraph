@@ -1,4 +1,4 @@
-const User = require('../../../models/registerModel')
+const User = require('../../models/registerModel')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const { UserInputError } = require('apollo-server');
@@ -57,7 +57,6 @@ module.exports = {
             //saving user in the database
             try {
                 const savedUser = await user.save();
-                console.log(savedUser)
 
                 // jwt token 
                 const token = jwt.sign({
@@ -87,8 +86,6 @@ module.exports = {
             if (!emailCheck) throw new UserInputError('email doesnot exist in the db', {
                 error: "user doesnot exist"
             })
-
-            console.log(emailCheck);
 
             // decrypting the passsword
             const passwordVerify = await bcrypt.compare(password, emailCheck.password); 

@@ -1,6 +1,8 @@
 const { AuthenticationError } = require('apollo-server');
 const jwt = require('jsonwebtoken')
-const {SECRET_KEY} = require('../../config')
+
+const dotenv = require('dotenv')
+dotenv.config()
 
 module.exports = (context)=>{
         //getting the header from the global req
@@ -12,7 +14,7 @@ module.exports = (context)=>{
             if (token) {
                 try {
                     // getting the token 
-                    const user = jwt.verify(token, SECRET_KEY)
+                    const user = jwt.verify(token, process.env.SECRET_KEY)
                     return user;
                 } catch (error) {
                     throw new AuthenticationError("invalid token")
