@@ -1,5 +1,4 @@
-const User = require('../models/registerModel')
-const CheckAuth = require('../utils/checkAuth.js')
+const User = require('../../models/registerModel')
 
 module.exports = {
     Query: {

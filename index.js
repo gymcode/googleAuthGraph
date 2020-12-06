@@ -5,8 +5,8 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 // imports 
-const { typeDefs } = require('./graphql/typeDefs')
-const { resolvers } = require('./resolvers/index')
+const { typeDefs } = require('./src/graphql/typeDefs.js')
+const { resolvers } = require('./src/graphql/resolvers/index')
 
 const server = new ApolloServer(
     {
@@ -24,5 +24,5 @@ mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true, useUnifiedTopol
         .then(({url})=> console.log(`server connection established successfully on url ${url}`))
 
 //models
-require('./models/registerModel.js');
-require('./models/wedding');
+require('./src/models/registerModel');
+require('./src/models/wedding');
