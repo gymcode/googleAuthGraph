@@ -28,7 +28,7 @@ module.exports = {
 
     Mutation: {
         // TODO registration
-        userRegister: async (parent, { registerInput: {firstname, lastname, username, password} }) => {
+        userRegister: async (parent,{ registerInput: {firstname, lastname, username, password} }) => {
             // validation for the inputs
             // making the username an email
             const DEFAULT_EMAIL = "@gmail.com"; 
@@ -56,20 +56,22 @@ module.exports = {
             //saving user in the database
             try {
                 const savedUser = await user.save();
+                console.log(savedUser)
 
                 // jwt token 
-                const token = jwt.sign({
-                    id: savedUser._id, 
-                    email: savedUser.email,     
-                    lastname: savedUser.lastname
-                }, SECRET_KEY, {expiresIn: '1h'})
+                // const token = jwt.sign({
+                //     id: savedUser._id, 
+                //     email: savedUser.email,     
+                //     lastname: savedUser.lastname
+                // }, SECRET_KEY, {expiresIn: '1h'})
 
-                console.log(savedUser)
+                const token = "asdnasjldasdnlsndlasndklasndlkasndlkansdlansdlknsdlknaslkdnlaksnd"
+
                 console.log(token)
 
                 return {
-                    ...savedUser._doc,
                     id: savedUser._id,
+                    ...savedUser._doc,
                     token
                 }
             } catch (error) {
@@ -100,7 +102,7 @@ module.exports = {
             const token = jwt.sign({
                 id: emailCheck._id, 
                 email: emailCheck.email
-            }, SECRET_KEY, {expiresIn: "1h"})
+            }, "this is life", {expiresIn: "1h"})
 
             return {
                 id: emailCheck._id,
