@@ -3,7 +3,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const { UserInputError } = require('apollo-server');
 
-const {SECRET_KEY} = require('../../../config')
+const dotenv = require('dotenv')
+dotenv.config()
 
 module.exports = {
     Query: {
@@ -59,19 +60,10 @@ module.exports = {
                 console.log(savedUser)
 
                 // jwt token 
-                // const token = jwt.sign({
-                //     id: savedUser._id, 
-                //     email: savedUser.email,     
-                //     lastname: savedUser.lastname
-                // }, SECRET_KEY, {expiresIn: '1h'})
                 const token = jwt.sign({
                     id: savedUser._id, 
                     email: savedUser.email
-                }, )
-
-                const token = "asdnasjldasdnlsndlasndklasndlkasndlkansdlansdlknsdlknaslkdnlaksnd"
-
-                console.log(token)
+                }, process.env.SECRET_KEY)                
 
                 return {
                     id: savedUser._id,
@@ -105,24 +97,16 @@ module.exports = {
             })
 
             // providing a token for login
-            // const token = jwt.sign({
-            //     id: emailCheck._id, 
-            //     email: emailCheck.email
-            // }, "this is life", {expiresIn: "1h"})
-
-            const token = "sdlakdaldnadskasdkasdkaskdjasdsajdnkasdnaksjdnaksdnakdj"
-            console.log(token)
+            const token = jwt.sign({
+                id: emailCheck._id, 
+                email: emailCheck.email
+            }, process.env.SECRET_KEY)      
 
             return {
                 id: emailCheck._id,
-                firstname: emailCheck.firstname, 
-                lastname: emailCheck.lastname,
-                email: emailCheck.email,
-                date: emailCheck.date,
+                ...emailCheck._doc,
                 token
             }
-
-
         }
     }
 }
