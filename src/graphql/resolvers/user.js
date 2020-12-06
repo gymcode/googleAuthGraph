@@ -65,8 +65,9 @@ module.exports = {
                 //     lastname: savedUser.lastname
                 // }, SECRET_KEY, {expiresIn: '1h'})
                 const token = jwt.sign({
-                    id: savedUser
-                })
+                    id: savedUser._id, 
+                    email: savedUser.email
+                }, )
 
                 const token = "asdnasjldasdnlsndlasndklasndlkasndlkansdlansdlknsdlknaslkdnlaksnd"
 
