@@ -92,6 +92,8 @@ module.exports = {
                 error: "user doesnot exist"
             })
 
+            console.log(emailCheck);
+
             // decrypting the passsword
             const passwordVerify = await bcrypt.compare(password, emailCheck.password); 
             if (!passwordVerify) throw new UserInputError('password is not in the database', {
@@ -99,10 +101,13 @@ module.exports = {
             })
 
             // providing a token for login
-            const token = jwt.sign({
-                id: emailCheck._id, 
-                email: emailCheck.email
-            }, "this is life", {expiresIn: "1h"})
+            // const token = jwt.sign({
+            //     id: emailCheck._id, 
+            //     email: emailCheck.email
+            // }, "this is life", {expiresIn: "1h"})
+
+            const token = "sdlakdaldnadskasdkasdkaskdjasdsajdnkasdnaksjdnaksdnakdj"
+            console.log(token)
 
             return {
                 id: emailCheck._id,
