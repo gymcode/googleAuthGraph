@@ -7,8 +7,7 @@ module.exports = {
             {weddingdetails: {brideName, groomName, venue, date, createdAt, updatedAt, user}}, 
             context) =>
             {
-                const User = checkAuth(context)
-                console.log(User);
+                const User = checkAuth(context)                
 
                 const newWedding = new Wedding({
                     brideName, 

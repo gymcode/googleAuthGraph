@@ -2,9 +2,7 @@ const User = require('../../models/registerModel')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const { UserInputError } = require('apollo-server');
-
-const dotenv = require('dotenv')
-dotenv.config()
+const {TokenGen}  = require('../../utils/generateToken')
 
 module.exports = {
     Query: {
@@ -57,12 +55,8 @@ module.exports = {
             //saving user in the database
             try {
                 const savedUser = await user.save();
-
                 // jwt token 
-                const token = jwt.sign({
-                    id: savedUser._id, 
-                    email: savedUser.email
-                }, process.env.SECRET_KEY)                
+                const token = TokenGen(savedUser)               
 
                 return {
                     id: savedUser._id,
@@ -94,10 +88,7 @@ module.exports = {
             })
 
             // providing a token for login
-            const token = jwt.sign({
-                id: emailCheck._id, 
-                email: emailCheck.email
-            }, process.env.SECRET_KEY)      
+            const token = TokenGen(emailCheck)     
 
             return {
                 id: emailCheck._id,
