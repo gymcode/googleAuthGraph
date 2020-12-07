@@ -1,8 +1,9 @@
 const User = require('../../models/registerModel')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken');
 const { UserInputError } = require('apollo-server');
+
 const {TokenGen}  = require('../../utils/generateToken')
+const {RegistrationValidation, LoginValidation} = require('../../utils/validator')
 
 module.exports = {
     Query: {
@@ -29,6 +30,12 @@ module.exports = {
         // TODO registration
         userRegister: async (parent,{ registerInput: {firstname, lastname, username, password, confirmPassword} }) => {
             // validation for the inputs
+            console.log("this is me")
+            const {errors, valid} = RegistrationValidation(firstname, lastname, username, password, confirmPassword);
+            console.log(valid)
+            if (!valid) {
+                throw new UserInputError('Errors', {errors})
+            }
             // making the username an email
             const DEFAULT_EMAIL = "@gmail.com"; 
             const email = username + DEFAULT_EMAIL;
@@ -75,6 +82,11 @@ module.exports = {
         // TODO login 
         userLogin: async(parent, {loginInput: {email, password}})=>{
             // making sure all fields are not empty
+            const { errors, valid } = LoginValidation(email, password)
+            if (!valid) {
+                throw new UserInputError('Error', {errors})
+            }
+
             // checking if the email already exists
             const emailCheck = await User.findOne({email}); 
             if (!emailCheck) throw new UserInputError('email doesnot exist in the db', {
