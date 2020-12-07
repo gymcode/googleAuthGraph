@@ -34,7 +34,6 @@ module.exports = {
         }
     },
 
-
     LoginValidation: (email, password)=>{
 
         const errors = {}

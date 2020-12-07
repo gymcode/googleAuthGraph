@@ -32,7 +32,6 @@ module.exports = {
             // validation for the inputs
             console.log("this is me")
             const {errors, valid} = RegistrationValidation(firstname, lastname, username, password, confirmPassword);
-            console.log(valid)
             if (!valid) {
                 throw new UserInputError('Errors', {errors})
             }
@@ -84,9 +83,8 @@ module.exports = {
             // making sure all fields are not empty
             const { errors, valid } = LoginValidation(email, password)
             if (!valid) {
-                throw new UserInputError('Error', {errors})
+                throw new UserInputError('Error', {errors});
             }
-
             // checking if the email already exists
             const emailCheck = await User.findOne({email}); 
             if (!emailCheck) throw new UserInputError('email doesnot exist in the db', {
