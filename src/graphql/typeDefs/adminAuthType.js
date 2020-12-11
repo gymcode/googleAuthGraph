@@ -6,12 +6,16 @@ const Admin = gql `
         firstname: String!, 
         othernames: String!, 
         email: String!, 
-        phone: String!,
         createdAt: Date!, 
         updatedAt: Date!
     }
 
     type SecondaryAdmins {
-        
+        _id: String!, 
+        firstname: String!, 
+        othernames: String!, 
+        email: String!, 
+        phone: String!, 
+        delete: Boolean!, 
     }
 `
