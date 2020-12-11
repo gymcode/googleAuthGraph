@@ -1,6 +1,7 @@
 const {gql} = require('apollo-server')
 
 const Admin = gql `
+
     type MainAdmin{
         _id: String!, 
         firstname: String!, 
@@ -17,5 +18,15 @@ const Admin = gql `
         email: String!, 
         phone: String!, 
         delete: Boolean!, 
+        permission: Boolean!, 
+        createdAt: Date, 
+        updatedAt: Date
     }
+
+    input AddMainAdmin {
+        firstname: String!,   
+        othernames: String, 
+        email: String!, 
+        
+    } 
 `
