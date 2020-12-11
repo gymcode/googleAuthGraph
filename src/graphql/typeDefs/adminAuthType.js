@@ -1,9 +1,17 @@
 const {gql} = require('apollo-server')
 
-
 const Admin = gql `
-    
-    extend type Mutation{
+    type MainAdmin{
+        _id: String!, 
+        firstname: String!, 
+        othernames: String!, 
+        email: String!, 
+        phone: String!,
+        createdAt: Date!, 
+        updatedAt: Date!
+    }
 
+    type SecondaryAdmins {
+        
     }
 `
