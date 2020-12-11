@@ -4,6 +4,8 @@ const Wedding = require('./typeDefs/weedingType')
 const Admin = require('./typeDefs/adminAuthType')
 
 const typeDefs = gql `
+    scalar Date
+
     type Query{
         root: String
     }

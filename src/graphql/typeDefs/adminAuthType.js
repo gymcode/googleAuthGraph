@@ -36,7 +36,9 @@ const Admin = gql `
     }
 
     extend type Mutation {
-        addMainAdmin(): 
-        addSecAdmin():
+        addMainAdmin(input: addMainAdmin): String!,
+        addSecAdmin(input: addSecAdmin): String!,
     }
 `
+
+module.exports = Admin
