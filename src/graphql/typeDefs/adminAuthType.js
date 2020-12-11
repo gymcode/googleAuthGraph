@@ -7,8 +7,8 @@ const Admin = gql `
         firstname: String!, 
         othernames: String!, 
         email: String!, 
-        createdAt: Date!, 
-        updatedAt: Date!
+        createdAt: Date, 
+        updatedAt: Date
     }
 
     type SecondaryAdmins {
@@ -17,16 +17,26 @@ const Admin = gql `
         othernames: String!, 
         email: String!, 
         phone: String!, 
-        delete: Boolean!, 
-        permission: Boolean!, 
+        delete: Boolean, 
         createdAt: Date, 
         updatedAt: Date
     }
 
-    input AddMainAdmin {
+    input addMainAdmin {
         firstname: String!,   
         othernames: String, 
-        email: String!, 
-        
+        email: String!,   
     } 
+
+    input addSecAdmin{
+        firstname: String!, 
+        othernames: String!, 
+        email: String!, 
+        phone: String!, 
+    }
+
+    extend type Mutation {
+        addMainAdmin(): 
+        addSecAdmin():
+    }
 `

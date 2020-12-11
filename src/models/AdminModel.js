@@ -1,6 +1,6 @@
 const {model, Schema} = require('mongoose')
 
-const MainAdminModel = new Schema({
+const MainAdminSchema = new Schema({
     firstname: {
         type: String, 
         required: true
@@ -15,6 +15,6 @@ const MainAdminModel = new Schema({
     }, 
 }, {timestamps: true});
 
-const MainAdminSchema = model('administrator', MainAdminModel);
+const MainAdminModel = model('administrator', MainAdminSchema);
 
-module.exports = {MainAdminSchema}
+module.exports = {MainAdminModel}

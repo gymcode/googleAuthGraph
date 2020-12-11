@@ -28,3 +28,5 @@ mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true, useUnifiedTopol
 //models
 require('./src/models/registerModel');
 require('./src/models/wedding');
+require('./src/models/AdminModel')
+require('./src/models/secondaryAdminModel')

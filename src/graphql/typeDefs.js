@@ -1,6 +1,7 @@
 const {gql} = require('apollo-server')
 const Users = require('./typeDefs/userAuthType')
 const Wedding = require('./typeDefs/weedingType')
+const Admin = require('./typeDefs/adminAuthType')
 
 const typeDefs = gql `
     type Query{
@@ -13,6 +14,7 @@ const typeDefs = gql `
 
     ${Users}
     ${Wedding}
+    ${Admin}
 `
 
 module.exports = typeDefs
