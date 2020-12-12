@@ -71,7 +71,10 @@ const MainAdminValidation = (
     }
     if (email.trim() === '') {
         errors.email = "username must not be empty"
-    } else if (){
+    } else if (!email.match(emailRegex)){
+        errors.email = "the format must be in the form of an email"
+    }
+    if (password.trim() === '') {
         
     }
 
