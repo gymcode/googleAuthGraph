@@ -24,7 +24,11 @@ const SecondaryAdminSchema = new Schema({
     permission: {
         type: Boolean, 
         default: false
-    }
+    }, 
+    password: {
+        type: String, 
+        required: true
+    }, 
 }, {timestamps: true})
 
 const SecondaryAdminModel = model('secondaryadmin', SecondaryAdminSchema)
