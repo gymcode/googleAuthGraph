@@ -59,7 +59,8 @@ const MainAdminValidation = (
     firstname, 
     othernames, 
     email, 
-    password
+    password,
+    confirmPassword
 )=>{
     const errors = {}, 
 
@@ -75,7 +76,16 @@ const MainAdminValidation = (
         errors.email = "the format must be in the form of an email"
     }
     if (password.trim() === '') {
-        
+        errors.password = "password field must not be empty"
+    } else if (!password.match(passwordRegex)) {
+        errors.password = "password field must contain at least an uppercase, a symbol and alphnumerica values"
+    } else if (password !== confirmPassword){
+        errors.password = "passwords must match"
+    }
+
+    return {
+        errors, 
+        valid: Object.keys(errors).length < 1
     }
 
 }
