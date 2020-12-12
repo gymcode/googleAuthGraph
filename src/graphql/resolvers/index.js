@@ -1,6 +1,7 @@
 // combining all the resolvers
 const UserResolvers = require('./user.js')
 const WeddingMutation = require('./wedding.js')
+const AdminResolvers = require('./admin.js')
 
 const resolvers = {
     Query: {
@@ -9,7 +10,8 @@ const resolvers = {
 
     Mutation: {
         ...UserResolvers.Mutation,
-        ...WeddingMutation.Mutation
+        ...WeddingMutation.Mutation, 
+        ...AdminResolvers.Mutation
     }
 }
 

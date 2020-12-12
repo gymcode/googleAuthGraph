@@ -3,9 +3,9 @@ const SecAdmin = require('../../models/secondaryAdminModel');
 
 
 module.exports = {
-    Mutation = {
-        addMainAdmin: async (parent, {input: {}})=>{
-
+    Mutation: {
+        addMainAdmin: async (_, {input: {firstname, othernames, email, password}})=>{
+            
         }
     }
 }

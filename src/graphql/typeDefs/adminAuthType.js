@@ -26,6 +26,7 @@ const Admin = gql `
         firstname: String!,   
         othernames: String, 
         email: String!,   
+        password: String!, 
     } 
 
     input addSecAdmin{
@@ -33,6 +34,7 @@ const Admin = gql `
         othernames: String!, 
         email: String!, 
         phone: String!, 
+        password: String!
     }
 
     extend type Mutation {
