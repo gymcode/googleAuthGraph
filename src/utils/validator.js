@@ -55,8 +55,26 @@ const LoginValidation = ()=>{
         }
 }
 
-const MainAdminValidation = ()=>{
-    
+const MainAdminValidation = (
+    firstname, 
+    othernames, 
+    email, 
+    password
+)=>{
+    const errors = {}, 
+
+    if (firstname.trim() === '') {
+        errors.firstname = "firstname must not be empty"
+    }
+    if (othernames.trim() === '') {
+        errors.othernames = "othernames must not be empty"
+    }
+    if (email.trim() === '') {
+        errors.email = "username must not be empty"
+    } else if (){
+        
+    }
+
 }
 
 
