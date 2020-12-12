@@ -93,5 +93,6 @@ const MainAdminValidation = (
 
 module.exports = {
    LoginValidation, 
-   RegistrationValidation
+   RegistrationValidation, 
+   MainAdminValidation
 }
