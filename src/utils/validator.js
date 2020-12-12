@@ -55,6 +55,10 @@ const LoginValidation = ()=>{
         }
 }
 
+const MainAdminValidation = ()=>{
+    
+}
+
 
 module.exports = {
    LoginValidation, 
