@@ -5,6 +5,8 @@ module.exports = {
          client.verify.services(process.env.ACCOUNT_SID)
             .verifications
             .create({to: phone, channel: process.env.CHANNEL})
-            .then(verification => {})
+            .then(verification => {
+                return console.log(verification.status)
+            })
     }
 }
