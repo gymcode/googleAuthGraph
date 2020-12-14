@@ -23,7 +23,7 @@ module.exports = {
             const SaltGen = await bcrypt.genSalt(12); 
             const hashedPassword = await bcrypt.hash(password, SaltGen)
 
-            const newUser = MainAdminModel
+            const newUser = MainAdminModel 
 
             // TODO if yes then cannot add onother super user
         }
