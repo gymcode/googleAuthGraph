@@ -39,9 +39,14 @@ const Admin = gql `
         confirmPassword: String!
     }
 
+    input adminPhone {
+        phone: String!, 
+    }
+
     extend type Mutation {
         addMainAdmin(input: addMainAdmin): String!,
         addSecAdmin(input: addSecAdmin): String!,
+        addMainAdminPhone(input: adminPhone): Boolean!,
     }
 `
 
