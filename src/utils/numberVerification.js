@@ -6,7 +6,7 @@ module.exports = {
             .verifications
             .create({to: phone, channel: process.env.CHANNEL})
             .then(verification => {
-                return console.log(verification.status)
+                return verification.status
             })
     }
 }
