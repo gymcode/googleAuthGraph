@@ -35,7 +35,7 @@ const RegistrationValidation = (
         }
 }
 
-const LoginValidation = ()=>{
+const LoginValidation = (email, password)=>{
     const errors = {}
         
         if (email.trim() === "") {

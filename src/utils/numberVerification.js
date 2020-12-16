@@ -26,4 +26,4 @@ module.exports = {
         } 
         throw new Error("must make sure a verification code has been entered")
     }   
-}
+} 
