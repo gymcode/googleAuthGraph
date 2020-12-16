@@ -8,7 +8,7 @@ module.exports = {
             .create({to: phone, channel: process.env.CHANNEL})
     }, 
 
-    checkToken: (phone, code, context)=>{
+    checkToken: ({phone}, context)=>{ 
         //getting the header from the global req
         const adminCode = context.req.headers.code; 
 
