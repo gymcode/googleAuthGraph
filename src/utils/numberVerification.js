@@ -10,7 +10,8 @@ module.exports = {
 
     checkToken: (phone, code, context)=>{
         //getting the header from the global req
-        const adminCode = context.req.headers.authorization; 
+        const adminCode = context.req.headers.code; 
+
         console.log(adminCode)
         if (adminCode) {
            try {
