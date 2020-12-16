@@ -10,14 +10,14 @@ module.exports = {
 
     checkToken: ({phone}, context)=>{ 
         //getting the header from the global req
-        const adminCode = context.req.headers.code; 
+        var adminCode = context.req.headers.code; 
 
         console.log(adminCode)
         if (adminCode) {
            try {
                const codeine =  client.verify.services(process.env.ACCOUNT_SID)
                             .verificationChecks
-                            .create({to: phone, code})
+                            .create({to: phone, code: adminCode})
                             .then(veri => console.log(veri.status))
                 return codeine;
            } catch (error) {
