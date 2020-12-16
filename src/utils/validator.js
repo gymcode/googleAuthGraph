@@ -62,7 +62,7 @@ const MainAdminValidation = (
     password,
     confirmPassword
 )=>{
-    const errors = {}, 
+    const errors = {};
 
     if (firstname.trim() === '') {
         errors.firstname = "firstname must not be empty"
