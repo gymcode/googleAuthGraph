@@ -3,10 +3,13 @@ const SecAdmin = require('../../models/secondaryAdminModel');
 const {MainAdminValidation} = require('../../utils/validator')
 const {UserInputError} = require('apollo-server')
 const bcrypt = require('bcryptjs')
+const {checkToken} = require('../../utils/numberVerification');
 
 module.exports = {
     Mutation: {
-        addMainAdmin: async (_, {input: {firstname, othernames, email, password}})=>{
+        addMainAdmin: async (_, {input: {firstname, othernames, email, password}}, context)=>{
+            const adminCheck = checkToken(context);
+            console.log(adminCheck)
             // TODO input validation
             const {errors, valid} = MainAdminValidation(firstname, othernames, email, password)
             if (!valid) {
