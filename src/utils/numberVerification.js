@@ -6,6 +6,7 @@ module.exports = {
          return client.verify.services(process.env.ACCOUNT_SID)
             .verifications
             .create({to: phone, channel: process.env.CHANNEL})
+            .then(verification => console.log(verification))
     }, 
 
     checkToken: (context)=>{ 
