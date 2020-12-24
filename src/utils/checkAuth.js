@@ -5,7 +5,7 @@ const {TokenVerification} = require('./generateToken')
 module.exports = (context)=>{
         //getting the header from the global req
         const authHeader = context.req.headers.authorization;
-        console.log(authHeader)
+        
         if (authHeader) {
             // spliting the auth bearer from the token 
             const token = authHeader.split('Bearer ')[1];
